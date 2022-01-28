@@ -40,9 +40,9 @@ class DevTools_API():
                 json_url_req = self.plugin_utils.web.session.get(dirty_json_url)
                 json_url_req.raise_for_status()
                 json_resp = json_url_req.json()
-            except self.plugin_utilsplugin_utils.web.exceptions.HTTPError as err:
-                self.plugin_utils.logger.error('Error while getting stations: %s' % err)
-                json_resp = {"error": 'Error while getting stations: %s' % err}
+            except self.plugin_utils.web.exceptions.HTTPError as err:
+                self.plugin_utils.logger.error('Error: %s' % err)
+                json_resp = {"error": 'Error: %s' % err}
 
             return_json = json.dumps(json_resp, indent=4)
 
